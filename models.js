@@ -3,7 +3,7 @@ var User = new Schema({
   lastName : String
 });
 
-var Drawing = new Schema({
+var Draw = new Schema({
   spot: Number,
   spot1: Number,
   spot2: Number,
@@ -27,4 +27,4 @@ var Drawing = new Schema({
   spot20: Number,
 });
 
-var Post = mongoose.model('BlogPost', BlogPost);
+var Drawing = mongoose.model('Draw', Draw);
