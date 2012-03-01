@@ -1,1 +1,1 @@
-Keno game with node.
+Keno game with JavaScript.
