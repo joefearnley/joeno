@@ -1,13 +1,16 @@
-/*
- * GET home page.
+/**
+ * GET maind index page.
  */
-
 exports.index = function(req, res){
   res.render('index', {
     title: 'home page'
   });
 };
 
+/**
+ * Main drawing page......
+ *
+ */
 exports.draw = function(req, res){
   var drawNumber = req.params.id;
 
