@@ -26,14 +26,18 @@ exports.draw = function(req, res){
     }
   }
 
+  var mongoose = require('mongoose');
+  mongoose.connect('mongodb://localhost/joeno');
+
+  //
   // save to mongo
   //
-  // Where do we invoke mongo??? app.js??
-
-  // retrieve
+  // retrieve from mongo
   //
   // invoke socket.io ?
   //
+
+  // render results
   res.render('draw', {
     title: 'draw',
     drawingNumber: 2
