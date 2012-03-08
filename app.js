@@ -4,11 +4,7 @@
 
 var express = require('express');
 var routes = require('./routes');
-var hbs = require('./node_modules/hbs/lib/hbs');
-
 var mongoose = require('mongoose').Mongoose;
-
-express.view.register('.hbs', hbs);
 
 var app = module.exports = express.createServer();
 
@@ -37,7 +33,6 @@ app.configure('production', function(){
  */
 app.get('/', routes.index);
 app.get('/draw/:id', routes.draw);
-
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
