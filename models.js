@@ -1,9 +1,12 @@
-var User = new Schema({
-  firstName : String,
-  lastName : String
+
+var mongoose = require('mongoose');
+
+var UserSchema = new mongoose.Schema({
+  firstname: String,
+  lastname: String
 });
 
-var Draw = new Schema({
+var DrawSchema = new mongoose.Schema({
   spot: Number,
   spot1: Number,
   spot2: Number,
@@ -24,7 +27,13 @@ var Draw = new Schema({
   spot17: Number,
   spot18: Number,
   spot19: Number,
-  spot20: Number,
+  spot20: Number
 });
 
-var Drawing = mongoose.model('Draw', Draw);
+mongoose.model('Draw', DrawSchema);
+mongoose.model('User', UserSchema);
+
+module.exports = {
+  User: UserSchema,
+  Draw: DrawSchema
+};

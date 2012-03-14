@@ -26,8 +26,9 @@ exports.draw = function(req, res){
     }
   }
 
-  var mongoose = require('mongoose');
-  mongoose.connect('mongodb://localhost/joeno');
+  var models = require('./models');
+  var Draw = require('./models').Draw;
+  console.log(Draw);
 
   //
   // save to mongo
