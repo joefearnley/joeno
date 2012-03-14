@@ -7,7 +7,7 @@ var UserSchema = new mongoose.Schema({
 });
 
 var DrawSchema = new mongoose.Schema({
-  spot: Number,
+  draw_id: Number,
   spot1: Number,
   spot2: Number,
   spot3: Number,
@@ -30,10 +30,10 @@ var DrawSchema = new mongoose.Schema({
   spot20: Number
 });
 
-mongoose.model('Draw', DrawSchema);
-mongoose.model('User', UserSchema);
+var user = mongoose.model('User', UserSchema);
+var draw = mongoose.model('Draw', DrawSchema);
 
 module.exports = {
-  User: UserSchema,
-  Draw: DrawSchema
+  Draw: user,
+  User: draw
 };
