@@ -1,1 +1,1 @@
-Keno game with JavaScript.
+Keno game made with JavaScript.
