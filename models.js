@@ -1,12 +1,16 @@
 
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var ObjectId = mongoose.ObjectId;
 
-var UserSchema = new mongoose.Schema({
-  firstname: String,
-  lastname: String
-});
+mongoose.connect('mongodb://localhost/my_database');
 
-var DrawSchema = new mongoose.Schema({
+//var UserSchema = new Schema({
+//  firstname: String,
+//  lastname: String
+//});
+
+var DrawSchema = new Schema({
   draw_id: Number,
   spot1: Number,
   spot2: Number,
@@ -30,10 +34,11 @@ var DrawSchema = new mongoose.Schema({
   spot20: Number
 });
 
-var user = mongoose.model('User', UserSchema);
+//var user = mongoose.model('User', UserSchema);
 var draw = mongoose.model('Draw', DrawSchema);
 
 module.exports = {
-  Draw: user,
-  User: draw
+  Draw: draw
+  //,
+  //User: user
 };
