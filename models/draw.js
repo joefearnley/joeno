@@ -1,12 +1,11 @@
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var ObjectId = mongoose.ObjectId;
 
 mongoose.connect('mongodb://localhost/joeno_test');
 
 var DrawSchema = new Schema({
-  draw_id: Number,
+  drawid: Number,
   spot1: Number,
   spot2: Number,
   spot3: Number,
@@ -29,5 +28,4 @@ var DrawSchema = new Schema({
   spot20: Number
 });
 
-export.Draw = mongoose.model('Draw', DrawSchema);
-
+module.exports.draw = mongoose.model('Draw', DrawSchema);

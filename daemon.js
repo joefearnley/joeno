@@ -1,7 +1,7 @@
 
 var models = require('./models');
-var Draw = models.Draw;
-
+var Draw = models.draw;
+var Counter = models.counter;
 
 var numbers = Array();
 while(numbers.length <= 19) {
@@ -38,7 +38,17 @@ draw.save(function (error) {
   if (error) {
     console.log('we got an error');
   } else {
-    console.log('draw saved: ' + this.id);
+    console.log('draw saved: ' + draw.id);
   }
 });
+
+Counter.increment('draw', function (err, result) {
+    if (err) {
+        console.error('Counter on draw save error: ' + err); 
+        return;
+    }
+    photo.cid = result.next;
+    photo.save();
+});
+
 
