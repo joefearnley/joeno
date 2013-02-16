@@ -1,6 +1,6 @@
 
 CREATE TABLE draw (
-  draw_id INT AUTO_INCREMENT,
+  drawid INT AUTO_INCREMENT,
   spot1 SMALLINT,
   spot2 SMALLINT,
   spot3 SMALLINT,
