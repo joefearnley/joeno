@@ -1,7 +1,10 @@
 
-var models = require('./models');
-var Draw = models.draw;
-var Counter = models.counter;
+//var mongoose = require('mongoose');
+//var Schema = mongoose.Schema;
+//mongoose.connect('mongodb://localhost/joeno_test');
+
+var Draw = require('./models/draw');
+var Counter = require('./models/counter');
 
 var numbers = Array();
 while(numbers.length <= 19) {
@@ -42,13 +45,13 @@ draw.save(function (error) {
   }
 });
 
-Counter.increment('draw', function (err, result) {
-    if (err) {
+Counter.increment('draw', function (error, result) {
+    if (error) {
         console.error('Counter on draw save error: ' + err); 
         return;
     }
-    photo.cid = result.next;
-    photo.save();
+    draw.drawid = result.next;
+    draw.save();
 });
 
 

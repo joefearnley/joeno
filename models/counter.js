@@ -1,8 +1,8 @@
 
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+//var mongoose = require('mongoose');
+//var Schema = mongoose.Schema;
 
-mongoose.connect('mongodb://localhost/joeno_test');
+//mongoose.connect('mongodb://localhost/joeno_test');
 
 var CounterSchema = new mongoose.Schema({
     _id: String,
@@ -13,15 +13,15 @@ var CounterSchema = new mongoose.Schema({
 });
 
 CounterSchema.statics.increment = function (counter, callback) {
-  return this.findByIdAndUpdate(counter, { 
-      $inc: { next: 1 } 
+  return this.findByIdAndUpdate(counter, {
+      $inc: { next: 1 }
     }, {
-      new: true, 
-      upsert: true, 
+      new: true,
+      upsert: true,
       select: {
         next: 1
       }
-    }, 
+    },
     callback);
 };
 
