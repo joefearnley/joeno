@@ -1,7 +1,5 @@
 
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-mongoose.connect('mongodb://localhost/joeno_test');
+var mongoose = require('connection.js');
 
 var DrawSchema = new Schema({
   drawid: Number,

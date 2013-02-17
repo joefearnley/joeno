@@ -4,6 +4,8 @@
 
 //mongoose.connect('mongodb://localhost/joeno_test');
 
+var mongoose = require('connection').mongoose;
+
 var CounterSchema = new mongoose.Schema({
     _id: String,
     next: { 
