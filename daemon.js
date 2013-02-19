@@ -1,9 +1,11 @@
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/joeno_test');
+var config = require('./config/dev').config;
 
 require('./models/draw');
 require('./models/counter');
+
+mongoose.connect('mongodb://'+config.mongo.host+'/'+config.mongo.db);
 
 var Draw = mongoose.model('Draw');
 var Counter = mongoose.model('Counter');
