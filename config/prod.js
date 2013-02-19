@@ -1,3 +1,8 @@
-config.mongo.host = 'localhost';
-config.mongo.db = 'joeno';
-modules.export = config;
+var config = {
+  mongo: {
+    host: 'localhost',
+    db: 'joeno'
+  }
+};
+
+exports.config = config;
