@@ -1,10 +1,12 @@
 
-//var mongoose = require('mongoose');
-//var Schema = mongoose.Schema;
-//mongoose.connect('mongodb://localhost/joeno_test');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/joeno_test');
 
-var Draw = require('./models/draw');
-var Counter = require('./models/counter');
+require('./models/draw');
+require('./models/counter');
+
+var Draw = mongoose.model('Draw');
+var Counter = mongoose.model('Counter');
 
 var numbers = Array();
 while(numbers.length <= 19) {
@@ -52,6 +54,5 @@ Counter.increment('draw', function (error, result) {
     }
     draw.drawid = result.next;
     draw.save();
+    console.log('Saving draw : ' + draw.drawid);
 });
-
-

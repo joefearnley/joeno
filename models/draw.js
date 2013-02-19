@@ -1,7 +1,7 @@
 
-var mongoose = require('connection.js');
+var mongoose = require('mongoose');
 
-var DrawSchema = new Schema({
+var DrawSchema = new mongoose.Schema({
   drawid: Number,
   spot1: Number,
   spot2: Number,
@@ -25,4 +25,4 @@ var DrawSchema = new Schema({
   spot20: Number
 });
 
-module.exports.draw = mongoose.model('Draw', DrawSchema);
+mongoose.model('Draw', DrawSchema);

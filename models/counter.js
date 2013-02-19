@@ -1,10 +1,5 @@
 
-//var mongoose = require('mongoose');
-//var Schema = mongoose.Schema;
-
-//mongoose.connect('mongodb://localhost/joeno_test');
-
-var mongoose = require('connection').mongoose;
+var mongoose = require('mongoose');
 
 var CounterSchema = new mongoose.Schema({
     _id: String,
@@ -27,5 +22,4 @@ CounterSchema.statics.increment = function (counter, callback) {
     callback);
 };
 
-
-module.exports.counter = mongoose.model('Counter', CounterSchema);
+mongoose.model('Counter', CounterSchema);

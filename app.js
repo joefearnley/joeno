@@ -8,7 +8,8 @@ var express = require('express')
   , user = require('./routes/user')
   , http = require('http')
   , path = require('path')
-  , mongoose = require('mongoose');
+  , mongoose = require('mongoose')
+  , config = require('./config/dev');
 
 var app = express();
 
@@ -27,6 +28,8 @@ app.configure(function(){
 app.configure('development', function(){
   app.use(express.errorHandler());
 });
+
+mongoose.connect('mongodb://'+config.mongo.host+'/'+config.mongo.db);
 
 app.get('/', routes.index);
 app.get('/users', user.list);
