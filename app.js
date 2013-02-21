@@ -14,6 +14,10 @@ var express = require('express')
 
 var app = express();
 
+
+/**
+ * Configurations
+ */
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
@@ -30,12 +34,33 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-mongoose.connect('mongodb://'+config.mongo.host+'/'+config.mongo.db);
-
+/**
+ * Routes
+ */
 app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/draw/:id', draw.show);
 
-http.createServer(app).listen(app.get('port'), function(){
+/**
+ * Connect to database
+ */
+mongoose.connect('mongodb://'+config.mongo.host+'/'+config.mongo.db);
+
+/**
+ * Start server
+ */
+var server = http.createServer(app);
+var io = require('socket.io').listen(server);
+
+server.listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
+
+/**
+ * start creating draws...
+ */
+var i = 0;
+var interval = setInterval(function(){
+ // set info to the browser 
+},1000);
+
