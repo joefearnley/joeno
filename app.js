@@ -9,7 +9,8 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , mongoose = require('mongoose')
-  , config = require('./config/dev');
+  , config = require('./config/dev').config
+  , draw = require('./routes/draw');
 
 var app = express();
 
