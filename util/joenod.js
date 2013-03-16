@@ -1,9 +1,9 @@
 
 var mongoose = require('mongoose');
-var config = require('./config/dev').config;
+var config = require('../config/dev').config;
 
-require('./models/draw');
-require('./models/counter');
+require('../models/draw');
+require('../models/counter');
 
 mongoose.connect('mongodb://'+config.mongo.host+'/'+config.mongo.db);
 
