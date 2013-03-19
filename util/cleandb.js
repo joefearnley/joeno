@@ -1,19 +1,28 @@
 
-var mongoose = require('mongoose');
-var config = require('../config/dev').config;
+require('./connect');
 
-require('../models/draw');
+var readline = require('readline');
 
-mongoose.connect('mongodb://'+config.mongo.host+'/'+config.mongo.db);
-
-var Draw = mongoose.model('Draw');
-
-
-Draw.find({}).exec(function(error, result) { 
-  if (error) { 
-    // delete all records
-  } else {
-    console.log('Error deleting all records: ' + error);
-  };
+var readline = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
 });
 
+readline.question("Are you sure you want to delete all records [Y/N]?", function(answer) {
+  
+  if(answer.toUpperCase() === 'Y') {
+    var Draw = mongoose.model('Draw');
+    Draw.remove(function(error) {
+      if (error) {
+        console.log('Error deleting all records: ' + error);
+        readline.close();
+        process.exit(1);
+      } else {
+        console.log('Reomoving all records');
+      }
+    });
+  }
+  readline.close();
+  process.exit(0);
+
+});
