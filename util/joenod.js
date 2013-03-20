@@ -1,11 +1,7 @@
 
-var mongoose = require('mongoose');
-var config = require('../config/dev').config;
-
+var mongoose = require('./connect').mongoose;
 require('../models/draw');
 require('../models/counter');
-
-mongoose.connect('mongodb://'+config.mongo.host+'/'+config.mongo.db);
 
 var Draw = mongoose.model('Draw');
 var Counter = mongoose.model('Counter');
@@ -52,9 +48,9 @@ draw.save(function (error) {
 Counter.increment('draw', function (error, result) {
     if (error) {
         console.error('Counter on draw save error: ' + err); 
-        return;
     }
     draw.drawid = result.next;
     draw.save();
     console.log('Saving draw : ' + draw.drawid);
+    process.exit(0);
 });
