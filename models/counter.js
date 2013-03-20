@@ -1,5 +1,5 @@
 
-var mongoose = require('mongoose');
+var mongoose = require('../util/connect').mongoose; 
 
 var CounterSchema = new mongoose.Schema({
     _id: String,

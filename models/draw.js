@@ -1,5 +1,5 @@
 
-var mongoose = require('mongoose');
+var mongoose = require('../util/connect').mongoose; 
 
 var DrawSchema = new mongoose.Schema({
   drawid: Number,
