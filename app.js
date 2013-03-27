@@ -1,8 +1,6 @@
-
 /**
  * Module dependencies.
  */
-
 var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
@@ -13,7 +11,6 @@ var express = require('express')
   , draw = require('./routes/draw');
 
 var app = express();
-
 
 /**
  * Configurations
@@ -60,7 +57,14 @@ server.listen(app.get('port'), function(){
  * start creating draws...
  */
 var i = 0;
-var interval = setInterval(function(){
- // set info to the browser 
-},1000);
+var drawInterval = setInterval(function(){
+
+  // display a number every 5 seconds.
+  var numberInterval = setInterval(function() {
+    // grab nest number in the draw
+  }, 5000);
+
+  // now wait 3 minutes
+  // should display a countdown in the UI
+},180000);
 
