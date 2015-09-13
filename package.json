@@ -1,12 +1,13 @@
 {
-    "name": "Joeno",
-    "version": "0.1.0",
-    "dependencies": {
-        "express": "^4.13.3",
-        "mongoose": "^4.1.6"
-    },
-    "description": "Keno game made with JavaScript.",
-    "main": "server.js",
-    "author": "Joe Fearnley",
-    "homepage": "https://github.com/joefearnley/joeno"
+  "name": "Joeno",
+  "version": "0.1.0",
+  "dependencies": {
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "mongoose": "^4.1.6"
+  },
+  "entry point": "server.js",
+  "description": "Keno game made with JavaScript.",
+  "author": "Joe Fearnley",
+  "homepage": "https://github.com/joefearnley/joeno"
 }
