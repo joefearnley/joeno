@@ -1,34 +1,32 @@
-/**
- * Module dependencies.
- */
-var express = require('express')
-    , http = require('http')
-    , path = require('path')
-    , config = require('./config/dev').config
-//    , mongoose = require('./util/connect').mongoose
-    //, draw = require('./routes/draw')
-    ;
+
+var config = require('./config/dev').config;
+
+var express = require('express');
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+
+//var mongoose = require('./util/connect').mongoose;
+//var draw = require('./routes/draw');
 
 var app = express();
 
-
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
-// app.use(express.bodyParser());
-// app.use(express.methodOverride());
 
 app.use(express.static(__dirname + '/public'));
 //app.use(express.errorHandler());
+
+server.listen(config.port);
 
 app.get('/', function(req, res) {
     res.render('index');
 });
 
-var server = http.createServer(app);
-// var io = require('socket.io').listen(server);
-
-server.listen(config.port, function() {
-    console.log("Express server listening on port " + config.port);
+io.on('connection', function (socket) {
+    socket.emit('draw', { hello: 'joeno' });
+    socket.on('my other event', function (data) {
+        console.log(data);
+    });
 });
 
 /**
