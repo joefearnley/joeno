@@ -1,27 +1,25 @@
+'use strict';
 
-var express = require('express');
-var app = express();
-
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
-
-server.listen(3000);
+const express = require('express');
+const app = express();
 
 app.use(express.static(__dirname + '/public'));
 
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
+// app.set('views', __dirname + '/views');
 
 app.get('/', function(req, res) {
     res.render('index');
 });
 
-io.on('connection', function (socket) {
-    var drawInterval = setInterval(function() {
-        var number = Math.floor(Math.random() * 81);
-        socket.emit('draw', { number: number });
-    }, 5000);
+app.get('/all', function(req, res) {
+    res.render('index');
 });
+
+app.listen(process.env.PORT, function () {
+  console.log('App listening on port ' + process.env.PORT)
+});
+
+module.exports = app;
 
 /**
  * start creating draws...
@@ -38,9 +36,9 @@ var drawInterval = setInterval(function(){
 
     // now wait 3 minutes
     // should display a countdown in the UI
-},180000);
+}, 180000);
 
-function getDraw() {
+function createDraw() {
     var Draw = mongoose.model('Draw');
     var Counter = mongoose.model('Counter');
 
