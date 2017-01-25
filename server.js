@@ -25,14 +25,13 @@ module.exports = app;
  */
 // var i = 0;
 // var drawInterval = setInterval(function(){
-
 //     var draw = getDraw();
-
+//
 //     // display a number every 5 seconds.
 //     var numberInterval = setInterval(function() {
 //     // grab nest number in the draw
 //     }, 5000);
-
+//
 //     // now wait 3 minutes
 //     // should display a countdown in the UI
 // }, 180000);
