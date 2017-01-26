@@ -4,7 +4,7 @@
   "description": "Keno game made with JavaScript.",
   "main": "server.js ",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha",
+    "test": "./node_modules/karma/bin/karma start",
     "start": "node server.js"
   },
   "repository": {
