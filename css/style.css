@@ -1,4 +1,8 @@
 
+body {
+  margin-top: 50px;
+}
+
 #board > .col > .row > div {
   width: 70px;
   height: 70px;
