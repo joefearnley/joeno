@@ -19,8 +19,7 @@ const App = {
             gameNumber: this.gameNumber
         });
 
-        $('#content').hide().html(boardHtml).fadeToggle();
-        //$('#content').fadeIn(1000);
+        $('#content').hide().html(boardHtml).show();
         
         let numbers = this.drawNumbers();
         let currentNumber = 1;
@@ -87,7 +86,6 @@ const App = {
             numbers20: numbers[19]
         });
 
-        // // fade results in.
         $('#content').hide().html(html).show();
     }
 };
