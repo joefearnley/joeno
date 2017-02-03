@@ -19,7 +19,7 @@ const App = {
             gameNumber: this.gameNumber
         });
 
-        $('#content').hide().html(boardHtml).show();
+        $('#content').hide().html(boardHtml).fadeIn(1000);
         
         let numbers = this.drawNumbers();
         let currentNumber = 1;
@@ -39,7 +39,7 @@ const App = {
             
             currentNumber++;
             
-        }, 1000);
+        }, 5000);
         
         return;
     },
@@ -61,6 +61,9 @@ const App = {
             
     },
     showResults: function(numbers) {
+        // sort the numbers to display nicely
+        numbers.sort();
+        
         // build results template
         let html = Mustache.render($('#resultsTemplate').html(), {
             gameNumber: this.gameNumber,
@@ -86,10 +89,9 @@ const App = {
             numbers20: numbers[19]
         });
 
-        $('#content').hide().html(html).show();
+        $('#content').hide().html(html).fadeIn(1000);
     }
 };
 
-$(function() {
-    App.start();
-});
+
+App.start();
